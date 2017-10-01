@@ -1,0 +1,12 @@
+{
+  "name": "ww-open-space",
+  "version": "1.0.0",
+  "description": "An app for allowing Workspace users to add themselves to spaces",
+  "main": "lib/index.js",
+  "author": "John Girata <jgirata2@us.ibm.com>",
+  "license": "",
+  "private": true,
+  "devDependencies": {
+    "lerna": "^2.2.0"
+  }
+}
