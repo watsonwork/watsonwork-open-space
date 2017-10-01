@@ -6,6 +6,9 @@
   "author": "John Girata <jgirata2@us.ibm.com>",
   "license": "",
   "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "devDependencies": {
     "lerna": "^2.2.0"
   }
