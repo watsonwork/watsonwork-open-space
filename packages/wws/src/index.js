@@ -12,6 +12,7 @@ class WWS {
         const req = request.post('https://api.watsonwork.ibm.com/oauth/token')
             .auth(this.id, this.secret)
             .type('form')
+            .set('Accept-Encoding', '')
             .send({ grant_type: 'client_credentials' });
 
         return promisify(req).then(res => {
@@ -49,7 +50,8 @@ function execGraphQL({ query, token }) {
     const req = request.post('https://api.watsonwork.ibm.com/graphql')
         .set('Authorization', `Bearer ${token}`)
         .set('Content-Type', 'application/graphql')
-        .send(query);
+        .set('Accept-Encoding', '')
+        .send(query.replace(/\s+/g, ' '));
 
     return promisify(req).then(res => {
         if (res.body && res.body.errors) {

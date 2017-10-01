@@ -1,13 +1,45 @@
 import { assert } from 'chai';
+import nock from 'nock';
 
 import WWS from '../src/index';
 
 describe('WWS', function () {
+    before(function () {
+        nock.load(__dirname + '/replies.json');
+    });
+
+    // before(function () {
+    //     nock.recorder.rec({
+    //         dont_print: true,
+    //         output_objects: true
+    //     });
+    // });
+    //
+    // after(function () {
+    //     const replies = nock.recorder.play();
+    //
+    //     replies.forEach(reply => {
+    //         let accessToken = reply.response.access_token;
+    //
+    //         if (typeof accessToken === 'string') {
+    //             accessToken = `${accessToken.slice(0, 3)}...${accessToken.slice(-3)}`;
+    //             reply.response.access_token = accessToken;
+    //         }
+    //
+    //         reply.rawHeaders = reply.rawHeaders.filter((header, index) => {
+    //             return header === 'Content-Type' || (index > 0 && reply.rawHeaders[index - 1] === 'Content-Type');
+    //         });
+    //     });
+    //
+    //     const json = JSON.stringify(replies, null, 4);
+    //     console.log(json); // eslint-disable-line no-console
+    // });
+
     describe('ensureToken', function () {
         before(function () {
             this.client = new WWS({
-                id: process.env.APP_ID,
-                secret: process.env.APP_SECRET
+                id: process.env.APP_ID || 'test-id',
+                secret: process.env.APP_SECRET || 'test-secret'
             });
         });
 
@@ -29,8 +61,8 @@ describe('WWS', function () {
     describe('fetchUser', function () {
         before(function () {
             this.client = new WWS({
-                id: process.env.APP_ID,
-                secret: process.env.APP_SECRET
+                id: process.env.APP_ID || 'test-id',
+                secret: process.env.APP_SECRET || 'test-secret'
             });
         });
 

@@ -10,7 +10,10 @@
     "globals": {
         "describe": true,
         "it": true,
-        "before": true
+        "before": true,
+        "after": true,
+        "xdescribe": true,
+        "xit": true
     },
     "rules": {
         "indent": [
@@ -22,6 +25,9 @@
             "unix"
         ],
         "no-console": [
+            "warn"
+        ],
+        "no-unused-vars": [
             "warn"
         ],
         "quotes": [
