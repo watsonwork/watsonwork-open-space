@@ -5,6 +5,13 @@ import WWS from '../src/index';
 
 describe('WWS', function () {
     before(function () {
+        this.client = new WWS({
+            id: process.env.APP_ID || 'test-id',
+            secret: process.env.APP_SECRET || 'test-secret'
+        });
+    });
+
+    before(function () {
         nock.load(__dirname + '/replies.json');
     });
 
@@ -36,13 +43,6 @@ describe('WWS', function () {
     // });
 
     describe('ensureToken', function () {
-        before(function () {
-            this.client = new WWS({
-                id: process.env.APP_ID || 'test-id',
-                secret: process.env.APP_SECRET || 'test-secret'
-            });
-        });
-
         it('should fetch a token given app credentials', function () {
             return this.client.ensureToken().then(() => {
                 assert.isString(this.client.accessToken);
@@ -59,13 +59,6 @@ describe('WWS', function () {
     });
 
     describe('fetchUser', function () {
-        before(function () {
-            this.client = new WWS({
-                id: process.env.APP_ID || 'test-id',
-                secret: process.env.APP_SECRET || 'test-secret'
-            });
-        });
-
         it('should fetch a user by email', function () {
             return this.client.fetchUser({ email: 'jgirata2@us.ibm.com' }).then(user => {
                 assert.equal(user.displayName, 'John Girata');
@@ -77,6 +70,53 @@ describe('WWS', function () {
                 throw new Error('Expected promise to be rejected, but it was resolved instead');
             }, err => {
                 assert.equal('user-not-found', err.message);
+            });
+        });
+    });
+
+    describe('fetchSpace', function () {
+        it('should fetch a space by ID', function () {
+            return this.client.fetchSpace({ id: '59d14041e4b0580885399ed7' }).then(space => {
+                assert.equal('Open Space Test', space.title);
+            });
+        });
+
+        it('should fail gracefully when the space does not exist', function () {
+            return this.client.fetchSpace({ id: '17' }).then(() => {
+                throw new Error('Expected promise to be rejected, but it was resolved instead');
+            }, err => {
+                assert.equal('not-found', err.message);
+            });
+        });
+    });
+
+    describe('addUserToSpace', function () {
+        it('add a user to a space', function () {
+            return this.client.addUserToSpace({
+                userId: 'fba49b40-5182-1032-9393-89fbb6fdad64',
+                spaceId: '59d14041e4b0580885399ed7'
+            }).then(result => {
+                assert.equal('no-change', result);
+            });
+        });
+
+        it('should fail gracefully when the app does not have access to the space', function () {
+            return this.client.addUserToSpace({
+                userId: 'fba49b40-5182-1032-9393-89fbb6fdad64',
+                spaceId: '17'
+            }).then(() => {
+                throw new Error('Expected promise to be rejected, but it was resolved instead');
+            }, err => {
+                assert.equal('Error executing GraphQL request', err.message);
+            });
+        });
+
+        it('should fail gracefully when the user does not exist', function () {
+            return this.client.addUserToSpace({
+                userId: '17',
+                spaceId: '59d14041e4b0580885399ed7'
+            }).then(result => {
+                assert.equal('no-change', result);
             });
         });
     });

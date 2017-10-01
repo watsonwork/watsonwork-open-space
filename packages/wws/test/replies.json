@@ -6,7 +6,7 @@
         "body": "grant_type=client_credentials",
         "status": 200,
         "response": {
-            "access_token": "eyJ...zdw",
+            "access_token": "eyJ...1rA",
             "token_type": "bearer",
             "expires_in": 86399,
             "scope": "app",
@@ -14,7 +14,7 @@
                 "app"
             ],
             "id": "ef55cb0e-4ad8-495f-8d16-ea26ae5ac111",
-            "jti": "5b490e93-d0e1-4ba6-9129-f791f0cc2aee"
+            "jti": "d486c5ea-6c3a-4268-9b6e-7dff57001f58"
         },
         "rawHeaders": [
             "Content-Type",
@@ -28,7 +28,7 @@
         "body": "grant_type=client_credentials",
         "status": 200,
         "response": {
-            "access_token": "eyJ...aWw",
+            "access_token": "eyJ...jJw",
             "token_type": "bearer",
             "expires_in": 86399,
             "scope": "app",
@@ -36,7 +36,7 @@
                 "app"
             ],
             "id": "ef55cb0e-4ad8-495f-8d16-ea26ae5ac111",
-            "jti": "758e17fd-5294-40fe-b640-7996675ff1c8"
+            "jti": "71cebe46-c3e8-44aa-b43b-7e22fa342130"
         },
         "rawHeaders": [
             "Content-Type",
@@ -50,7 +50,7 @@
         "body": "grant_type=client_credentials",
         "status": 200,
         "response": {
-            "access_token": "eyJ...I4Q",
+            "access_token": "eyJ...YfA",
             "token_type": "bearer",
             "expires_in": 86399,
             "scope": "app",
@@ -58,7 +58,7 @@
                 "app"
             ],
             "id": "ef55cb0e-4ad8-495f-8d16-ea26ae5ac111",
-            "jti": "efa6dc9f-478e-4c1b-8393-13d7e3bb0676"
+            "jti": "c645a4c9-467e-4ee6-9942-6ee1163fdd09"
         },
         "rawHeaders": [
             "Content-Type",
@@ -92,7 +92,7 @@
         "body": "grant_type=client_credentials",
         "status": 200,
         "response": {
-            "access_token": "eyJ..._5w",
+            "access_token": "eyJ...GwQ",
             "token_type": "bearer",
             "expires_in": 86399,
             "scope": "app",
@@ -100,7 +100,7 @@
                 "app"
             ],
             "id": "ef55cb0e-4ad8-495f-8d16-ea26ae5ac111",
-            "jti": "431eaec0-7943-4762-8df3-53fdbbe15b89"
+            "jti": "a2d1ed5a-ca7d-43ed-939d-3811fa599b6e"
         },
         "rawHeaders": [
             "Content-Type",
@@ -116,6 +116,212 @@
         "response": {
             "data": {
                 "person": null
+            }
+        },
+        "rawHeaders": [
+            "Content-Type",
+            "application/json;charset=UTF-8"
+        ]
+    },
+    {
+        "scope": "https://api.watsonwork.ibm.com:443",
+        "method": "POST",
+        "path": "/oauth/token",
+        "body": "grant_type=client_credentials",
+        "status": 200,
+        "response": {
+            "access_token": "eyJ...S4A",
+            "token_type": "bearer",
+            "expires_in": 86399,
+            "scope": "app",
+            "permissions": [
+                "app"
+            ],
+            "id": "ef55cb0e-4ad8-495f-8d16-ea26ae5ac111",
+            "jti": "b5ed3953-1b3e-4113-b9e2-5aa1c4503fb8"
+        },
+        "rawHeaders": [
+            "Content-Type",
+            "application/json;charset=UTF-8"
+        ]
+    },
+    {
+        "scope": "https://api.watsonwork.ibm.com:443",
+        "method": "POST",
+        "path": "/graphql",
+        "body": " query { space(id: \"59d14041e4b0580885399ed7\") { id title } } ",
+        "status": 200,
+        "response": {
+            "data": {
+                "space": {
+                    "id": "59d14041e4b0580885399ed7",
+                    "title": "Open Space Test"
+                }
+            }
+        },
+        "rawHeaders": [
+            "Content-Type",
+            "application/json;charset=UTF-8"
+        ]
+    },
+    {
+        "scope": "https://api.watsonwork.ibm.com:443",
+        "method": "POST",
+        "path": "/oauth/token",
+        "body": "grant_type=client_credentials",
+        "status": 200,
+        "response": {
+            "access_token": "eyJ...g7g",
+            "token_type": "bearer",
+            "expires_in": 86399,
+            "scope": "app",
+            "permissions": [
+                "app"
+            ],
+            "id": "ef55cb0e-4ad8-495f-8d16-ea26ae5ac111",
+            "jti": "65c6e789-dff1-421e-9ff0-e95b9a428597"
+        },
+        "rawHeaders": [
+            "Content-Type",
+            "application/json;charset=UTF-8"
+        ]
+    },
+    {
+        "scope": "https://api.watsonwork.ibm.com:443",
+        "method": "POST",
+        "path": "/graphql",
+        "body": " query { space(id: \"17\") { id title } } ",
+        "status": 200,
+        "response": {
+            "data": {
+                "space": null
+            }
+        },
+        "rawHeaders": [
+            "Content-Type",
+            "application/json;charset=UTF-8"
+        ]
+    },
+    {
+        "scope": "https://api.watsonwork.ibm.com:443",
+        "method": "POST",
+        "path": "/oauth/token",
+        "body": "grant_type=client_credentials",
+        "status": 200,
+        "response": {
+            "access_token": "eyJ...bcA",
+            "token_type": "bearer",
+            "expires_in": 86399,
+            "scope": "app",
+            "permissions": [
+                "app"
+            ],
+            "id": "ef55cb0e-4ad8-495f-8d16-ea26ae5ac111",
+            "jti": "e890b6ac-aa3a-40c2-b171-8322326c271f"
+        },
+        "rawHeaders": [
+            "Content-Type",
+            "application/json;charset=UTF-8"
+        ]
+    },
+    {
+        "scope": "https://api.watsonwork.ibm.com:443",
+        "method": "POST",
+        "path": "/graphql",
+        "body": " mutation { updateSpace(input: { id: \"59d14041e4b0580885399ed7\", members: [\"fba49b40-5182-1032-9393-89fbb6fdad64\"], memberOperation: ADD }) { memberIdsChanged } } ",
+        "status": 200,
+        "response": {
+            "data": {
+                "updateSpace": {
+                    "memberIdsChanged": []
+                }
+            }
+        },
+        "rawHeaders": [
+            "Content-Type",
+            "application/json;charset=UTF-8"
+        ]
+    },
+    {
+        "scope": "https://api.watsonwork.ibm.com:443",
+        "method": "POST",
+        "path": "/oauth/token",
+        "body": "grant_type=client_credentials",
+        "status": 200,
+        "response": {
+            "access_token": "eyJ...yVQ",
+            "token_type": "bearer",
+            "expires_in": 86399,
+            "scope": "app",
+            "permissions": [
+                "app"
+            ],
+            "id": "ef55cb0e-4ad8-495f-8d16-ea26ae5ac111",
+            "jti": "7852e6e8-1812-4ff5-80c9-fcb1e5c27354"
+        },
+        "rawHeaders": [
+            "Content-Type",
+            "application/json;charset=UTF-8"
+        ]
+    },
+    {
+        "scope": "https://api.watsonwork.ibm.com:443",
+        "method": "POST",
+        "path": "/graphql",
+        "body": " mutation { updateSpace(input: { id: \"17\", members: [\"fba49b40-5182-1032-9393-89fbb6fdad64\"], memberOperation: ADD }) { memberIdsChanged } } ",
+        "status": 200,
+        "response": {
+            "data": {
+                "updateSpace": null
+            },
+            "errors": [
+                {
+                    "message": "500 Internal Server Error",
+                    "field": {
+                        "name": "updateSpace",
+                        "type": "SpaceMutation"
+                    }
+                }
+            ]
+        },
+        "rawHeaders": [
+            "Content-Type",
+            "application/json;charset=UTF-8"
+        ]
+    },
+    {
+        "scope": "https://api.watsonwork.ibm.com:443",
+        "method": "POST",
+        "path": "/oauth/token",
+        "body": "grant_type=client_credentials",
+        "status": 200,
+        "response": {
+            "access_token": "eyJ...3FQ",
+            "token_type": "bearer",
+            "expires_in": 86399,
+            "scope": "app",
+            "permissions": [
+                "app"
+            ],
+            "id": "ef55cb0e-4ad8-495f-8d16-ea26ae5ac111",
+            "jti": "a0d022f4-4cc2-45bd-884c-a260be5ea036"
+        },
+        "rawHeaders": [
+            "Content-Type",
+            "application/json;charset=UTF-8"
+        ]
+    },
+    {
+        "scope": "https://api.watsonwork.ibm.com:443",
+        "method": "POST",
+        "path": "/graphql",
+        "body": " mutation { updateSpace(input: { id: \"59d14041e4b0580885399ed7\", members: [\"17\"], memberOperation: ADD }) { memberIdsChanged } } ",
+        "status": 200,
+        "response": {
+            "data": {
+                "updateSpace": {
+                    "memberIdsChanged": []
+                }
             }
         },
         "rawHeaders": [

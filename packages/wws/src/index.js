@@ -44,6 +44,57 @@ class WWS {
             return user;
         });
     }
+
+    fetchSpace({ id }) {
+        return this.ensureToken().then(() => {
+            return execGraphQL({
+                token: this.accessToken,
+                query: `
+                    query {
+                        space(id: "${id}") {
+                            id
+                            title
+                        }
+                    }
+                `
+            });
+        }).then(res => {
+            const space = _.get(res, 'body.data.space');
+
+            if (!space) {
+                throw new Error('not-found');
+            }
+
+            return space;
+        });
+    }
+
+    addUserToSpace({ userId, spaceId }) {
+        return this.ensureToken().then(() => {
+            return execGraphQL({
+                token: this.accessToken,
+                query: `
+                    mutation {
+                        updateSpace(input: {
+                            id: "${spaceId}",
+                            members: ["${userId}"],
+                            memberOperation: ADD
+                        }) {
+                            memberIdsChanged
+                        }
+                    }
+                `
+            });
+        }).then(res => {
+            const changes = _.get(res, 'body.data.memberIdsChanged');
+
+            if (changes) {
+                return 'user-added';
+            }
+
+            return 'no-change';
+        });
+    }
 }
 
 function execGraphQL({ query, token }) {
