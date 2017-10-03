@@ -2,7 +2,7 @@
 @font-gray: #777677;
 @font-light: white;
 
-@background-blue: #009BEF;
+@light-blue: #4178be;
 
 @breakpoint-small: 400px;
 
@@ -65,13 +65,18 @@ body {
 
 .form .join {
     width: 110px;
-    border: none;
-    background-color: @background-blue;
-    color: @font-light;
+    background-color: white;
+    border: 2px solid @light-blue;
+    color: @light-blue;
     border-radius: 16px;
     font-size: 1em;
     height: 32px;
     cursor: pointer;
+
+    &:hover, &:focus {
+        background-color: @light-blue;
+        color: @font-light;
+    }
 }
 
 .success .actions {
@@ -80,20 +85,29 @@ body {
 
 .success .actions a.go-to-workspace {
     text-decoration: none;
-    background-color: @background-blue;
-    color: @font-light;
-    border-radius: 22px;
+    border: 2px solid @light-blue;
+    color: @light-blue;
+    border-radius: 26px;
     font-size: 1em;
-    padding: 12px 24px;
+    padding: 8px 20px;
     display: inline-block;
+
+    &:hover, &:focus {
+        background-color: @light-blue;
+        color: white;
+    }
 }
 
 .success .actions a.start-over {
-    text-decoration: underline;
+    text-decoration: none;
     color: @font-gray;
     font-size: .875em;
     margin: 24px;
     display: inline-block;
+
+    &:hover, &:focus {
+        text-decoration: underline;
+    }
 }
 
 .state-start .success, .state-start .error {
