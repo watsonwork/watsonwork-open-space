@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Join {{space.title}} - IBM Watson Workspace</title>
+        <meta charset="utf-8">
+        <meta name="apple-itunes-app" content="app-id=1128882175">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="favicon.ico" />
+        <link rel="stylesheet" href="styles.css" />
+        <script>
+            window._properties = {
+              space: {
+                id: '58a638d2e4b008aad35029b9'
+              }
+            }
+        </script>
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <div class="logo">
+            <img class="icon" src="icon.png" /> <span class="app-name">Open Space</span>
+        </div>
+        <div id="root" class="state-start">
+            <div class="start">
+                <h1 class="space-name-header">Join <span class="space-name">{{space.title}}</span></h1>
+                <div class="join-space-description">It's easy!  Enter your email to join the space:</div>
+                <div class="form">
+                    <input type="email" class="email" size="40" placeholder="Your email address here..." />
+                    <input type="submit" class="join" value="Join" />
+                </div>
+            </div>
+            <div class="success">
+                <h1 class="space-name-header">You've joined <span class="space-name">{{space.title}}</span></h1>
+                <div class="actions">
+                    <a class="go-to-workspace" href="https://workspace.ibm.com/space/{{space.id}}">Go to <span class="space-name">{{space.title}}</span></a> <a class="start-over" href="javascript:window.location.reload()">add&nbsp;someone&nbsp;else</a>
+                </div>
+            </div>
+            <div class="error">
+                <p>Oops, something went wrong 😕</p>
+                <p>Try checking the browser console for more information.</p>
+            </div>
+        </div>
+    </body>
+</html>

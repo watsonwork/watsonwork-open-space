@@ -6,7 +6,7 @@
   "author": "John Girata <jgirata2@us.ibm.com>",
   "license": "",
   "scripts": {
-      "test": "lerna run test"
+    "test": "lerna run test"
   },
   "private": true,
   "workspaces": [

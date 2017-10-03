@@ -1,0 +1,109 @@
+@font-dark: #1d3649;
+@font-gray: #777677;
+@font-light: white;
+
+@background-blue: #009BEF;
+
+@breakpoint-small: 400px;
+
+body {
+    font-family: "Helvetica Neue for IBM", "Helvetica Neue", Helvetica, Arial, sans;
+    color: @font-dark;
+}
+
+.logo {
+    .icon {
+        width: 32px;
+        height: 32px;
+        vertical-align: middle;
+    }
+
+    .app-name {
+        vertical-align: middle;
+    }
+}
+
+#root {
+    max-width: 600px;
+    margin: auto;
+    margin-top: 40px;
+}
+
+#root h1 {
+    font-weight: 300;
+    margin: 24px 0;
+
+    @media (max-width: @breakpoint-small) {
+        font-size: 1.75em;
+    }
+}
+
+#root h1 .space-name {
+    font-weight: 500;
+}
+
+.form {
+    margin: 24px 0;
+    display: inline-flex;
+    text-align: center;
+}
+
+.form .email {
+    margin-right: 12px;
+    padding: 6px;
+    padding-left: 12px;
+    flex-grow: 1;
+    font-size: 1em;
+    width: calc(100% - 120px);
+    height: 20px;
+
+    @media (max-width: @breakpoint-small) {
+        font-size: .875em;
+        padding-left: 6px;
+    }
+}
+
+.form .join {
+    width: 110px;
+    border: none;
+    background-color: @background-blue;
+    color: @font-light;
+    border-radius: 16px;
+    font-size: 1em;
+    height: 32px;
+    cursor: pointer;
+}
+
+.success .actions {
+    text-align: center;
+}
+
+.success .actions a.go-to-workspace {
+    text-decoration: none;
+    background-color: @background-blue;
+    color: @font-light;
+    border-radius: 22px;
+    font-size: 1em;
+    padding: 12px 24px;
+    display: inline-block;
+}
+
+.success .actions a.start-over {
+    text-decoration: underline;
+    color: @font-gray;
+    font-size: .875em;
+    margin: 24px;
+    display: inline-block;
+}
+
+.state-start .success, .state-start .error {
+    display: none;
+}
+
+.state-success .start, .state-success .error {
+    display: none;
+}
+
+.state-error .start, .state-error .success {
+    display: none;
+}
