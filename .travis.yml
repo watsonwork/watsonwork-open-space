@@ -1,5 +1,17 @@
 language: node_js
 node_js: 6
+before_deploy:
+  - cd packages/static
+  - yarn build
+  - cd ../..
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_url: github.ibm.com
+  github_token: $GITHUB_TOKEN
+  local_dir: packages/static/lib/test
+  on:
+    branch: master
 notifications:
   email:
     on_success: change
