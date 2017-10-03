@@ -20,13 +20,14 @@ const templateTestData = {
 };
 
 gulp.task('prod-templates', function () {
-    return gulp.src('src/index.html')
+    return gulp.src('src/index.handlebars')
         .pipe(gulp.dest('lib'));
 });
 
 gulp.task('dev-templates', function () {
-    return gulp.src('src/index.html')
+    return gulp.src('src/index.handlebars')
         .pipe(handlebars(templateTestData))
+        .pipe(rename('index.html'))
         .pipe(gulp.dest('lib/test'));
 });
 

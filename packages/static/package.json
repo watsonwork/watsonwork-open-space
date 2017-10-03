@@ -5,6 +5,7 @@
   "scripts": {
     "build": "gulp build"
   },
+  "main": "lib/index.handlebars",
   "author": "",
   "license": "",
   "devDependencies": {
