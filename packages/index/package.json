@@ -7,7 +7,10 @@
     "build": "babel src --out-dir lib",
     "start": "node lib/index.js",
     "start-dev": "nodemon --exec babel-node -- src/index.js",
-    "test": "NODE_ENV=test mocha --compilers js:babel-register --require source-map-support/register test/index.test.js"
+    "test": "yarn test-service && yarn test-unit",
+    "test-service": "NODE_ENV=test mocha --compilers js:babel-register --require source-map-support/register test/index.test.js",
+    "test-unit": "mocha --compilers js:babel-register --require source-map-support/register test/add-user.test.js",
+    "test-unit-watch": "mocha --watch --compilers js:babel-register --require source-map-support/register test/add-user.test.js"
   },
   "author": "",
   "license": "",
@@ -16,6 +19,8 @@
     "cfenv": "^1.0.4",
     "express": "^4.16.1",
     "express-handlebars": "^3.0.0",
+    "q": "^1.5.0",
+    "sinon": "^4.0.1",
     "supertest": "^3.0.0",
     "ww-open-space-static": "1.0.0",
     "ww-open-space-wws": "1.0.0"

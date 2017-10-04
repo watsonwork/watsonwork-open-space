@@ -2,10 +2,11 @@ import express from 'express';
 import handlebars from 'express-handlebars';
 import bodyParser from 'body-parser';
 import path from 'path';
+import cfenv from 'cfenv';
 
 import WWSClient from 'ww-open-space-wws';
 
-import cfenv from 'cfenv';
+import addUser from './add-user';
 
 const appEnv = cfenv.getAppEnv();
 const creds = appEnv.getServiceCreds(/ww-open-space-creds/) || {};
@@ -35,8 +36,27 @@ app.get('/', (req, res) => {
 });
 
 app.post('/api/join', (req, res) => {
-    res.sendStatus(200);
-    return;
+    addUser({
+        wwsClient,
+        email: req.body.email,
+        space: req.body.space
+    }).then(status => {
+        res.status(status.result === 'user-added' ? 201 : 200).send('');
+    }).catch(err => {
+        console.error('Got an error...', err);
+
+        switch (err.message) {
+        case 'user-not-whitelisted':
+            res.status(403).send({ message: 'Cannot add user to space because user does not match IBM email domain whitelist.'});
+            return;
+
+        case 'cannot-add-to-space':
+            res.status(403).send({ message: 'Failed to add user to space.  Has the app been added to the space?'});
+            return;
+        }
+
+        res.status(500).send({ message: 'Unknown error' });
+    });
 });
 
 app.use('/static', express.static(path.dirname(viewPath)));

@@ -12,6 +12,8 @@
         "it": true,
         "before": true,
         "after": true,
+        "beforeEach": true,
+        "afterEach": true,
         "xdescribe": true,
         "xit": true
     },
@@ -25,7 +27,7 @@
             "unix"
         ],
         "no-console": [
-            "warn"
+            "off"
         ],
         "no-unused-vars": [
             "warn"
