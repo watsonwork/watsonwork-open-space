@@ -5,7 +5,8 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "babel src --out-dir lib",
-    "test": "mocha --compilers js:babel-register --require source-map-support/register test/*.test.js"
+    "test": "mocha --compilers js:babel-register --require source-map-support/register test/*.test.js",
+    "test-watch": "mocha --watch --compilers js:babel-register --require source-map-support/register test/*.test.js"
   },
   "author": "",
   "license": "",

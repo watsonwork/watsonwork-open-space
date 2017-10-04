@@ -20,7 +20,10 @@ const viewPath = require.resolve('ww-open-space-static');
 
 const wwsClient = new WWSClient({
     id: getEnvValue('APP_ID'),
-    secret: getEnvValue('APP_SECRET')
+    secret: getEnvValue('APP_SECRET'),
+    personalRefreshToken: getEnvValue('PERSONAL_REFRESH_TOKEN'),
+    personalClientId: getEnvValue('PERSONAL_CLIENT_ID'),
+    personalClientSecret: getEnvValue('PERSONAL_CLIENT_SECRET')
 });
 
 function getEnvValue(key) {

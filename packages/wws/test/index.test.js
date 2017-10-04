@@ -3,44 +3,76 @@ import nock from 'nock';
 
 import WWS from '../src/index';
 
+const config = {
+    envValues: {
+        id: process.env.APP_ID,
+        secret: process.env.APP_SECRET,
+        personalRefreshToken: process.env.PERSONAL_REFRESH_TOKEN,
+        personalClientId: process.env.PERSONAL_CLIENT_ID,
+        personalClientSecret: process.env.PERSONAL_CLIENT_SECRET
+    },
+    defaultValues: {
+        id: 'test-id',
+        secret: 'test-secret',
+        personalRefreshToken: 'test-refresh-token',
+        personalClientId: 'test-client-id',
+        personalClientSecret: 'test-client-secret'
+    }
+};
+
 describe('WWS', function () {
+    const record = process.env.RECORD === 'true';
+
     before(function () {
-        this.client = new WWS({
-            id: process.env.APP_ID || 'test-id',
-            secret: process.env.APP_SECRET || 'test-secret'
-        });
+        this.client = new WWS(record ? config.envValues : config.defaultValues);
     });
 
     before(function () {
-        nock.load(__dirname + '/replies.json');
+        if (!record) {
+            nock.load(__dirname + '/replies.json');
+        }
     });
 
-    // before(function () {
-    //     nock.recorder.rec({
-    //         dont_print: true,
-    //         output_objects: true
-    //     });
-    // });
-    //
-    // after(function () {
-    //     const replies = nock.recorder.play();
-    //
-    //     replies.forEach(reply => {
-    //         let accessToken = reply.response.access_token;
-    //
-    //         if (typeof accessToken === 'string') {
-    //             accessToken = `${accessToken.slice(0, 3)}...${accessToken.slice(-3)}`;
-    //             reply.response.access_token = accessToken;
-    //         }
-    //
-    //         reply.rawHeaders = reply.rawHeaders.filter((header, index) => {
-    //             return header === 'Content-Type' || (index > 0 && reply.rawHeaders[index - 1] === 'Content-Type');
-    //         });
-    //     });
-    //
-    //     const json = JSON.stringify(replies, null, 4);
-    //     console.log(json); // eslint-disable-line no-console
-    // });
+    before(function () {
+        if (record) {
+            nock.recorder.rec({
+                dont_print: true,
+                output_objects: true
+            });
+        }
+    });
+
+    after(function () {
+        if (record) {
+            const replies = nock.recorder.play();
+
+            replies.forEach(reply => {
+                sanitizeToken(reply.response, 'access_token');
+                sanitizeToken(reply.response, 'refresh_token');
+
+                reply.rawHeaders = reply.rawHeaders.filter((header, index) => {
+                    return header === 'Content-Type' || (index > 0 && reply.rawHeaders[index - 1] === 'Content-Type');
+                });
+            });
+
+            let json = JSON.stringify(replies, null, 4);
+
+            Object.keys(config.envValues).forEach(key => {
+                json = json.replace(new RegExp(config.envValues[key], 'g'), config.defaultValues[key]);
+            });
+
+            console.log(json); // eslint-disable-line no-console
+        }
+    });
+
+    function sanitizeToken(obj, tokenKey) {
+        let token = obj[tokenKey];
+
+        if (typeof token === 'string') {
+            token = `${token.slice(0, 3)}...${token.slice(-3)}`;
+            obj[tokenKey] = token;
+        }
+    }
 
     describe('ensureToken', function () {
         it('should fetch a token given app credentials', function () {
@@ -117,6 +149,24 @@ describe('WWS', function () {
                 spaceId: '59d14041e4b0580885399ed7'
             }).then(result => {
                 assert.equal('no-change', result);
+            });
+        });
+    });
+
+    describe('inviteUser', function () {
+        it('should successfuly invite new users with valid emails', function () {
+            return this.client.ensureUserInvited({
+                email: 'ww-open-space-test-1507152436874@yopmail.com'
+            }).then(user => {
+                assert.isString(user.id);
+            });
+        });
+
+        it('should return existing users if the email is already registered', function () {
+            return this.client.ensureUserInvited({
+                email: 'jgirata2@us.ibm.com'
+            }).then(user => {
+                assert.equal('fba49b40-5182-1032-9393-89fbb6fdad64', user.id);
             });
         });
     });
