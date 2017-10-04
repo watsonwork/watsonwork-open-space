@@ -1,0 +1,11 @@
+applications:
+- path: .
+  buildpack: https://github.com/cloudfoundry/nodejs-buildpack
+  memory: 256M
+  instances: 1
+  domain: mybluemix.net
+  name: ww-open-space-test
+  host: ww-open-space-test
+  disk_quota: 256M
+  services:
+   - ww-open-space-creds

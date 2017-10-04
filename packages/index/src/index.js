@@ -5,6 +5,11 @@ import path from 'path';
 
 import WWSClient from 'ww-open-space-wws';
 
+import cfenv from 'cfenv';
+
+const appEnv = cfenv.getAppEnv();
+const creds = appEnv.getServiceCreds(/ww-open-space-creds/) || {};
+
 export const app = express();
 app.use(bodyParser.json());
 
@@ -14,9 +19,13 @@ app.set('view engine', 'handlebars');
 const viewPath = require.resolve('ww-open-space-static');
 
 const wwsClient = new WWSClient({
-    id: process.env.APP_ID,
-    secret: process.env.APP_SECRET
+    id: getEnvValue('APP_ID'),
+    secret: getEnvValue('APP_SECRET')
 });
+
+function getEnvValue(key) {
+    return creds[key] || process.env[key];
+}
 
 app.get('/', (req, res) => {
     res.sendStatus(200);

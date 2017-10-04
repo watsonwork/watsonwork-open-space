@@ -13,6 +13,7 @@
   "license": "",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "cfenv": "^1.0.4",
     "express": "^4.16.1",
     "express-handlebars": "^3.0.0",
     "supertest": "^3.0.0",
