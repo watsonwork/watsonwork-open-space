@@ -6,6 +6,8 @@
   "author": "John Girata <jgirata2@us.ibm.com>",
   "license": "",
   "scripts": {
+    "build": "lerna run build",
+    "start": "cd packages/index && node lib/index.js",
     "test": "lerna run test"
   },
   "private": true,
@@ -13,6 +15,7 @@
     "packages/*"
   ],
   "devDependencies": {
-    "lerna": "^2.2.0"
+    "lerna": "^2.2.0",
+    "yarn": "^1.1.0"
   }
 }

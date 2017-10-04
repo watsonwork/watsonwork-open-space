@@ -1,10 +1,8 @@
 language: node_js
 node_js: 6
-before_deploy: >
-  sh -c '
-    cd packages/static;
-    yarn build
-  '
+script:
+  - yarn build
+  - yarn test
 deploy:
   provider: pages
   skip_cleanup: true

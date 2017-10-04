@@ -1,0 +1,26 @@
+{
+  "name": "ww-open-space-index",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "babel src --out-dir lib",
+    "start": "node lib/index.js",
+    "start-dev": "nodemon --exec babel-node -- src/index.js",
+    "test": "NODE_ENV=test mocha --compilers js:babel-register --require source-map-support/register test/index.test.js"
+  },
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.1",
+    "express-handlebars": "^3.0.0",
+    "supertest": "^3.0.0",
+    "ww-open-space-static": "1.0.0",
+    "ww-open-space-wws": "1.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "nodemon": "^1.12.1"
+  }
+}

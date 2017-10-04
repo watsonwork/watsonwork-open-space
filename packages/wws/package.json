@@ -1,9 +1,10 @@
 {
-  "name": "wws",
+  "name": "ww-open-space-wws",
   "version": "1.0.0",
   "description": "A library for interacting with Watson Work Services APIs",
   "main": "lib/index.js",
   "scripts": {
+    "build": "babel src --out-dir lib",
     "test": "mocha --compilers js:babel-register --require source-map-support/register test/*.test.js"
   },
   "author": "",
