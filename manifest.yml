@@ -4,8 +4,8 @@ applications:
   memory: 256M
   instances: 1
   domain: mybluemix.net
-  name: ww-open-space-test
-  host: ww-open-space-test
+  name: ww-open-space
+  host: ww-open-space
   disk_quota: 256M
   services:
    - ww-open-space-creds

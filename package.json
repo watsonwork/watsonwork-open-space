@@ -8,7 +8,8 @@
   "scripts": {
     "build": "lerna run build",
     "start": "cd packages/index && node lib/index.js",
-    "test": "lerna run test"
+    "test": "lerna run test",
+    "push": "yarn install && yarn build && cf push"
   },
   "private": true,
   "workspaces": [
