@@ -15,16 +15,23 @@ describe('checkWhitelist', function () {
 
     it('should allow @ibm.com emails', function () {
         testEmail('john@ibm.com', true);
+        testEmail('john@IBM.com', true);
     });
 
     it('should allow @*.ibm.com emails', function () {
         testEmail('john@us.ibm.com', true);
         testEmail('john@ie.ibm.com', true);
         testEmail('john@mx2.ibm.com', true);
+        testEmail('john@US.ibm.com', true);
     });
 
     it('should allow @ibm.co.uk emails', function () {
         testEmail('john@ibm.co.uk', true);
+        testEmail('john@IBM.co.uk', true);
+    });
+
+    it('should allow @mearsgroup.co.uk emails', function () {
+        testEmail('john@mearsgroup.co.uk', true);
     });
 });
 

@@ -28,15 +28,19 @@ export default function addUser({ wwsClient, email, space }) {
 }
 
 export function isWhitelisted(email) {
-    if (/@ibm.com$/.exec(email)) {
+    if (/@ibm.com$/i.exec(email)) {
         return true;
     }
 
-    if (/@ibm.co.uk$/.exec(email)) {
+    if (/@ibm.co.uk$/i.exec(email)) {
         return true;
     }
 
-    if (/@[a-zA-Z0-9]+\.ibm.com$/.exec(email)) {
+    if (/@[a-zA-Z0-9]+\.ibm.com$/i.exec(email)) {
+        return true;
+    }
+
+    if (/@mearsgroup.co.uk$/i.exec(email)) {
         return true;
     }
 
