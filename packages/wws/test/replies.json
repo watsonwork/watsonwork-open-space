@@ -6,15 +6,15 @@
         "body": "grant_type=client_credentials",
         "status": 200,
         "response": {
-            "access_token": "eyJ...fVA",
+            "access_token": "eyJ...7vQ",
             "token_type": "bearer",
-            "expires_in": 86399,
+            "expires_in": 3599,
             "scope": "app",
             "permissions": [
                 "app"
             ],
             "id": "test-id",
-            "jti": "47d8611a-7305-4cef-8f71-e74bb9bf552f"
+            "jti": "da1d33d3-d896-47ff-80d0-1ebb94984521"
         },
         "rawHeaders": [
             "Content-Type",
@@ -28,15 +28,15 @@
         "body": "grant_type=client_credentials",
         "status": 200,
         "response": {
-            "access_token": "eyJ...doQ",
+            "access_token": "eyJ...SFg",
             "token_type": "bearer",
-            "expires_in": 86399,
+            "expires_in": 3599,
             "scope": "app",
             "permissions": [
                 "app"
             ],
             "id": "test-id",
-            "jti": "51a935f9-561a-4668-be8a-ebc819bdd710"
+            "jti": "fe3b7f1e-b912-4afa-a667-3b02c3442964"
         },
         "rawHeaders": [
             "Content-Type",
@@ -50,15 +50,15 @@
         "body": "grant_type=client_credentials",
         "status": 200,
         "response": {
-            "access_token": "eyJ...OUg",
+            "access_token": "eyJ...MjA",
             "token_type": "bearer",
-            "expires_in": 86399,
+            "expires_in": 3599,
             "scope": "app",
             "permissions": [
                 "app"
             ],
             "id": "test-id",
-            "jti": "1a635476-c265-43de-b757-9f1c871c2417"
+            "jti": "0c276aa4-15fc-43d3-bccc-02205b99907f"
         },
         "rawHeaders": [
             "Content-Type",
@@ -92,15 +92,15 @@
         "body": "grant_type=client_credentials",
         "status": 200,
         "response": {
-            "access_token": "eyJ...Lbg",
+            "access_token": "eyJ...b5Q",
             "token_type": "bearer",
-            "expires_in": 86399,
+            "expires_in": 3599,
             "scope": "app",
             "permissions": [
                 "app"
             ],
             "id": "test-id",
-            "jti": "79d46cc9-40ca-4be1-9aea-60e618e7e444"
+            "jti": "345698d8-7902-4533-8a4f-9d1d82f643c1"
         },
         "rawHeaders": [
             "Content-Type",
@@ -130,15 +130,15 @@
         "body": "grant_type=client_credentials",
         "status": 200,
         "response": {
-            "access_token": "eyJ...sKw",
+            "access_token": "eyJ...g8Q",
             "token_type": "bearer",
-            "expires_in": 86399,
+            "expires_in": 3599,
             "scope": "app",
             "permissions": [
                 "app"
             ],
             "id": "test-id",
-            "jti": "3b69ef82-e923-447e-a9aa-70ff288c1738"
+            "jti": "13be9302-c11f-48df-8d2c-69025792b229"
         },
         "rawHeaders": [
             "Content-Type",
@@ -171,15 +171,15 @@
         "body": "grant_type=client_credentials",
         "status": 200,
         "response": {
-            "access_token": "eyJ...bVQ",
+            "access_token": "eyJ...TxQ",
             "token_type": "bearer",
-            "expires_in": 86399,
+            "expires_in": 3599,
             "scope": "app",
             "permissions": [
                 "app"
             ],
             "id": "test-id",
-            "jti": "903b40ce-9414-475a-9cb9-ce2cdf87ac9a"
+            "jti": "862f30f1-208a-4740-9112-bc5385665784"
         },
         "rawHeaders": [
             "Content-Type",
@@ -209,15 +209,15 @@
         "body": "grant_type=client_credentials",
         "status": 200,
         "response": {
-            "access_token": "eyJ...igQ",
+            "access_token": "eyJ...NFA",
             "token_type": "bearer",
-            "expires_in": 86399,
+            "expires_in": 3599,
             "scope": "app",
             "permissions": [
                 "app"
             ],
             "id": "test-id",
-            "jti": "14f858c1-bb45-4336-983e-09973e44308c"
+            "jti": "82cdb7a5-c27a-4440-bc80-2e69e339f4f0"
         },
         "rawHeaders": [
             "Content-Type",
@@ -249,15 +249,15 @@
         "body": "grant_type=client_credentials",
         "status": 200,
         "response": {
-            "access_token": "eyJ...udg",
+            "access_token": "eyJ...vig",
             "token_type": "bearer",
-            "expires_in": 86399,
+            "expires_in": 3599,
             "scope": "app",
             "permissions": [
                 "app"
             ],
             "id": "test-id",
-            "jti": "b2d2247d-0249-486b-a248-2795140ec7c5"
+            "jti": "225d2a46-af20-4c2b-b74f-3a6fcefcb6a3"
         },
         "rawHeaders": [
             "Content-Type",
@@ -276,7 +276,7 @@
             },
             "errors": [
                 {
-                    "message": "500 Internal Server Error",
+                    "message": "404 Not Found",
                     "field": {
                         "name": "updateSpace",
                         "type": "SpaceMutation"
@@ -296,15 +296,15 @@
         "body": "grant_type=client_credentials",
         "status": 200,
         "response": {
-            "access_token": "eyJ...yww",
+            "access_token": "eyJ...LYA",
             "token_type": "bearer",
-            "expires_in": 86399,
+            "expires_in": 3599,
             "scope": "app",
             "permissions": [
                 "app"
             ],
             "id": "test-id",
-            "jti": "0748b972-fc61-4e8b-9ebc-92b58c7310a7"
+            "jti": "dc5425b3-0737-4252-857d-3e3efae17b40"
         },
         "rawHeaders": [
             "Content-Type",
@@ -333,21 +333,18 @@
         "scope": "https://api.watsonwork.ibm.com:443",
         "method": "POST",
         "path": "/oauth/token",
-        "body": "grant_type=refresh_token&refresh_token=test-refresh-token",
+        "body": "grant_type=client_credentials",
         "status": 200,
         "response": {
-            "access_token": "eyJ...Nnw",
+            "access_token": "eyJ...JkQ",
             "token_type": "bearer",
-            "refresh_token": "eyJ...zSQ",
-            "expires_in": 86399,
-            "scope": "ibmid rtm read write search approval.manage privileged_client user",
-            "id": "fba49b40-5182-1032-9393-89fbb6fdad64",
-            "displayName": "John Girata",
-            "providerId": "BLUE_ID_AUTH_PROVIDER",
+            "expires_in": 3599,
+            "scope": "app",
             "permissions": [
-                "user"
+                "app"
             ],
-            "jti": "c79ccd3d-5413-4bac-96dc-caf49fa79418"
+            "id": "test-id",
+            "jti": "1b7b586c-adf1-4bca-a64c-f0e8c576e458"
         },
         "rawHeaders": [
             "Content-Type",
@@ -365,11 +362,11 @@
         "response": {
             "id": "59d55235e4b0c24a752b2042",
             "published": 1507152437359,
-            "updated": 1507152437365,
+            "updated": 1509022941799,
             "publishedBy": "000",
             "updatedBy": "000",
             "deleted": false,
-            "version": 1,
+            "version": 141,
             "firstName": "",
             "lastName": "",
             "displayName": "ww-open-space-test-1507152436874@yopmail.com",
@@ -383,7 +380,8 @@
             "blocked": false,
             "hidden": false,
             "migrated": false,
-            "invitedBy": "fba49b40-5182-1032-9393-89fbb6fdad64"
+            "invitedBy": "fba49b40-5182-1032-9393-89fbb6fdad64",
+            "activeAccount": true
         },
         "rawHeaders": [
             "Content-Type",
@@ -394,21 +392,18 @@
         "scope": "https://api.watsonwork.ibm.com:443",
         "method": "POST",
         "path": "/oauth/token",
-        "body": "grant_type=refresh_token&refresh_token=test-refresh-token",
+        "body": "grant_type=client_credentials",
         "status": 200,
         "response": {
-            "access_token": "eyJ...7XQ",
+            "access_token": "eyJ...P-A",
             "token_type": "bearer",
-            "refresh_token": "eyJ...uXw",
-            "expires_in": 86399,
-            "scope": "ibmid rtm read write search approval.manage privileged_client user",
-            "id": "fba49b40-5182-1032-9393-89fbb6fdad64",
-            "displayName": "John Girata",
-            "providerId": "BLUE_ID_AUTH_PROVIDER",
+            "expires_in": 3599,
+            "scope": "app",
             "permissions": [
-                "user"
+                "app"
             ],
-            "jti": "18ad710a-74b1-4f74-b09a-ba8632597732"
+            "id": "test-id",
+            "jti": "6fe3ebe1-1eb6-41b2-af27-bad6e13b32f7"
         },
         "rawHeaders": [
             "Content-Type",
@@ -426,11 +421,11 @@
         "response": {
             "id": "56e2d51b9932175709eef43c",
             "published": 1457706267207,
-            "updated": 1496962921298,
+            "updated": 1508858213587,
             "publishedBy": "000",
             "updatedBy": "000",
             "deleted": false,
-            "version": 307,
+            "version": 309,
             "firstName": "John",
             "lastName": "Girata",
             "displayName": "John Girata",
@@ -445,7 +440,9 @@
             "blocked": false,
             "hidden": false,
             "migrated": false,
-            "photoUrl": "/photos/fba49b40-5182-1032-9393-89fbb6fdad64"
+            "photoUrl": "/photos/fba49b40-5182-1032-9393-89fbb6fdad64",
+            "locale": "en_US",
+            "activeAccount": true
         },
         "rawHeaders": [
             "Content-Type",

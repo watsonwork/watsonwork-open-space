@@ -40,9 +40,5 @@ export function isWhitelisted(email) {
         return true;
     }
 
-    if (/@mearsgroup.co.uk$/i.exec(email)) {
-        return true;
-    }
-
     return false;
 }

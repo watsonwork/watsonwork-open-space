@@ -6,17 +6,11 @@ import WWS from '../src/index';
 const config = {
     envValues: {
         id: process.env.APP_ID,
-        secret: process.env.APP_SECRET,
-        personalRefreshToken: process.env.PERSONAL_REFRESH_TOKEN,
-        personalClientId: process.env.PERSONAL_CLIENT_ID,
-        personalClientSecret: process.env.PERSONAL_CLIENT_SECRET
+        secret: process.env.APP_SECRET
     },
     defaultValues: {
         id: 'test-id',
-        secret: 'test-secret',
-        personalRefreshToken: 'test-refresh-token',
-        personalClientId: 'test-client-id',
-        personalClientSecret: 'test-client-secret'
+        secret: 'test-secret'
     }
 };
 

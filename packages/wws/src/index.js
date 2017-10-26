@@ -2,19 +2,14 @@ import request from 'superagent';
 import q from 'q';
 import _ from 'lodash';
 
-const TOKEN_ENDPOINT = 'https://api.watsonwork.ibm.com/oauth/token';
-
 class WWS {
-    constructor({ id, secret, personalRefreshToken, personalClientId, personalClientSecret }) {
+    constructor({ id, secret }) {
         this.id = id;
         this.secret = secret;
-        this.personalRefreshToken = personalRefreshToken;
-        this.personalClientId = personalClientId;
-        this.personalClientSecret = personalClientSecret;
     }
 
     ensureToken() {
-        const req = request.post(TOKEN_ENDPOINT)
+        const req = request.post('https://api.watsonwork.ibm.com/oauth/token')
             .auth(this.id, this.secret)
             .type('form')
             .set('Accept-Encoding', '')
@@ -23,22 +18,6 @@ class WWS {
         return promisify(req).then(res => {
             this.accessToken = res.body.access_token;
             return this.accessToken;
-        });
-    }
-
-    ensurePersonalToken() {
-        const req = request.post(TOKEN_ENDPOINT)
-            .auth(this.personalClientId, this.personalClientSecret)
-            .type('form')
-            .set('Accept-Encoding', '')
-            .send({
-                grant_type: 'refresh_token',
-                refresh_token: this.personalRefreshToken
-            });
-
-        return promisify(req).then(res => {
-            this.personalAccessToken = res.body.access_token;
-            return this.personalAccessToken;
         });
     }
 
@@ -119,7 +98,7 @@ class WWS {
     }
 
     ensureUserInvited({ email }) {
-        return this.ensurePersonalToken().then(accessToken => {
+        return this.ensureToken().then(accessToken => {
             const req = request.post('https://api.watsonwork.ibm.com/people/api/v1/people/invite/user')
                 .set('Authorization', `Bearer ${accessToken}`)
                 .set('Accept-Encoding', '')
